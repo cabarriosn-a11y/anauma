@@ -1,0 +1,35 @@
+ANAUMA BOUTIQUE CREATIVA - CÓMO EDITAR LA TIENDA
+
+EDITAR PRODUCTOS (sin tocar código)
+Abre la hoja "Anauma – Catálogo de la tienda web" en Google Drive o en la app Google Sheets.
+Cada fila es un producto. Los cambios se ven en la página al recargarla.
+
+Columnas:
+- id: código único (p01, p02...). No lo repitas.
+- nombre: nombre del producto.
+- categoria: escribe una de estas: pulseras, denarios, llaveros, recuerdos, infantil
+- precio: solo el número, sin puntos ni $ (ej: 25000).
+- precio_antes: precio anterior para mostrar descuento. 0 si no hay.
+- unidad: opcional (ej: c/u desde 20, el par, docena).
+- etiqueta: texto corto que sale sobre la foto (ej: Nuevo, Oferta). Vacío si no.
+- personalizable: SI o NO.
+- agotado: SI o NO.
+- mostrar: SI o NO (NO lo oculta sin borrarlo).
+- foto: ver abajo.
+- descripcion: una o dos frases.
+
+AGREGAR UN PRODUCTO: escribe una fila nueva al final.
+
+FOTOS NUEVAS
+1. Sube la foto a Google Drive (vertical, mejor 4:5).
+2. Toca los 3 puntos > Compartir > Acceso general: "Cualquier persona con el enlace".
+3. Copia el enlace y pégalo en la columna foto.
+Las fotos que dicen img/... ya vienen dentro de la página.
+
+IMPORTANTE (una sola vez)
+La hoja debe estar compartida como "Cualquier persona con el enlace: Lector".
+Si no, la página muestra el catálogo de respaldo.
+
+PUBLICAR LA PÁGINA
+app.netlify.com/drop -> arrastra esta carpeta completa. Solo se hace una vez:
+después, los cambios de productos se hacen en la hoja.

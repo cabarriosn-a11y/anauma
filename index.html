@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Anauma Boutique Creativa: pulseras, denarios, llaveros y recuerdos personalizados hechos a mano.">
+<meta property="og:title" content="Anauma · Boutique Creativa">
+<meta property="og:description" content="Pulseras, denarios y recuerdos para bautizos y primeras comuniones, hechos con amor. Pide por WhatsApp.">
+<meta property="og:image" content="img/portada.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#E2628C">
+<title>Anauma Boutique Creativa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parisienne&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,500,100;0,9..144,700,100;1,9..144,500,100&family=Quicksand:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: boutique de recuerdos en rosa pastel; portada con fotos tipo polaroid pegadas con cinta, cinta de texto en movimiento, bordes ondulados entre secciones */
+:root{
+  --bg:#FFF2F5;          /* rosa algodón */
+  --bg2:#FDE3EA;         /* rosa más profundo para bandas */
+  --surface:#FFFFFF;
+  --ink:#4A2340;         /* ciruela */
+  --muted:#8A6080;
+  --line:#F3CFDA;
+  --rose:#E2628C;        /* acento principal */
+  --on-rose:#FFFFFF;
+  --peach:#F8C9B8;
+  --lilac:#D9C6F0;
+  --mint:#C6EADB;
+  --gold:#C49A3C;
+  --wa:#1F9E55;
+  --font-script:"Parisienne", "Brush Script MT", cursive;
+  --font-display:"Fraunces", Georgia, serif;
+  --font-body:"Quicksand", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r:22px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#26131F;--bg2:#331A2A;--surface:#3A1F31;--ink:#FCE8EF;--muted:#D6A9C1;--line:#55304A;--rose:#FF8FB1;--on-rose:#3A0F22;--peach:#7A4A44;--lilac:#4F3F6B;--mint:#2F5A4C;--gold:#E2BC63;--wa:#2DBA6A;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#26131F;--bg2:#331A2A;--surface:#3A1F31;--ink:#FCE8EF;--muted:#D6A9C1;--line:#55304A;--rose:#FF8FB1;--on-rose:#3A0F22;--peach:#7A4A44;--lilac:#4F3F6B;--mint:#2F5A4C;--gold:#E2BC63;--wa:#2DBA6A;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;margin:0;font-weight:500;overflow-x:hidden}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:16px}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;text-wrap:balance;margin:0;font-variation-settings:"SOFT" 100}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--rose);outline-offset:2px;border-radius:8px}
+.script{font-family:var(--font-script);font-weight:400;color:var(--rose)}
+.eyebrow{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+
+/* Encabezado */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:70px}
+.logo{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.logo .name{font-family:var(--font-script);font-size:2.1rem;color:var(--rose)}
+.logo .name::after{content:"♥";font-family:var(--font-body);font-size:.7rem;vertical-align:top;margin-left:2px;color:var(--gold)}
+.logo small{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:2px;margin-left:4px}
+nav.menu{display:flex;gap:22px;margin-left:auto;font-weight:600}
+nav.menu a{text-decoration:none;color:var(--muted)}
+nav.menu a:hover{color:var(--rose)}
+.bag-btn{display:flex;align-items:center;gap:8px;border:0;background:var(--rose);color:var(--on-rose);border-radius:999px;padding:10px 16px;font-weight:700;box-shadow:0 6px 18px color-mix(in srgb,var(--rose) 35%,transparent)}
+.bag-btn .count{background:var(--surface);color:var(--rose);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:.8rem;font-variant-numeric:tabular-nums}
+@media (max-width:760px){nav.menu{display:none}.bag-btn{margin-left:auto}}
+
+/* Portada */
+.hero{position:relative;padding-block:44px 70px;overflow:hidden}
+.hero::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,var(--lilac),transparent 70%);top:-160px;right:-120px;opacity:.7}
+.hero::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--peach),transparent 70%);bottom:-200px;left:-140px;opacity:.6}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+.hello{font-family:var(--font-script);font-size:2rem;color:var(--rose);line-height:1}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);letter-spacing:-.015em;margin-top:6px}
+.hero h1 .script{font-size:1.15em;display:inline-block;transform:rotate(-3deg)}
+.hero p.lead{font-size:1.15rem;color:var(--muted);max-width:36ch;margin:18px 0 26px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 24px;font-weight:700;text-decoration:none;border:0}
+.btn-main{background:var(--rose);color:var(--on-rose);box-shadow:0 10px 24px color-mix(in srgb,var(--rose) 35%,transparent)}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-ghost{background:var(--surface);border:2px solid var(--line);color:var(--ink)}
+.seals{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.seals span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.85rem;font-weight:600}
+.seals span:nth-child(1)::before{content:"✿ ";color:var(--rose)}
+.seals span:nth-child(2)::before{content:"✿ ";color:var(--gold)}
+.seals span:nth-child(3)::before{content:"✿ ";color:#9C7BD0}
+
+/* Polaroids */
+.board{position:relative;height:500px;max-width:100%}
+.pol{position:absolute;background:var(--surface);padding:10px 10px 38px;border-radius:6px;box-shadow:0 14px 34px rgba(74,35,64,.18);width:min(230px,48%);transition:transform .35s ease}
+.pol img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;background:var(--bg2)}
+.pol figcaption{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-family:var(--font-script);font-size:1.3rem;color:var(--ink)}
+.pol::before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:24px;transform:translateX(-50%) rotate(-4deg);background:color-mix(in srgb,var(--rose) 35%,transparent);border-radius:2px}
+.pol.p1{left:4%;top:20px;transform:rotate(-7deg);z-index:2}
+.pol.p2{right:2%;top:0;transform:rotate(6deg);z-index:1}
+.pol.p2::before{background:color-mix(in srgb,var(--lilac) 85%,transparent)}
+.pol.p3{left:30%;top:210px;transform:rotate(2deg);z-index:3}
+.pol.p3::before{background:color-mix(in srgb,var(--mint) 90%,transparent)}
+.pol:hover{transform:rotate(0) scale(1.04);z-index:5}
+.sticker{position:absolute;right:4%;bottom:20px;z-index:6;width:118px;height:118px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;text-align:center;font-weight:700;font-size:.82rem;line-height:1.2;transform:rotate(12deg);box-shadow:0 10px 22px rgba(0,0,0,.18);animation:spin 18s linear infinite}
+.sticker b{font-family:var(--font-script);font-size:1.6rem;font-weight:400;display:block}
+@keyframes spin{from{transform:rotate(12deg)}50%{transform:rotate(-8deg)}to{transform:rotate(12deg)}}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.board{height:420px;order:-1}.pol{width:44%}.pol.p3{left:28%;top:170px}}
+@media (max-width:420px){.board{height:360px}.pol.p3{top:140px}.sticker{width:96px;height:96px;font-size:.72rem}}
+
+/* Cinta en movimiento */
+.ribbon{background:var(--rose);color:var(--on-rose);overflow:hidden;white-space:nowrap;transform:rotate(-1.2deg);margin-block:-10px 10px;position:relative;z-index:2}
+.ribbon .track{display:inline-block;padding:12px 0;animation:marquee 32s linear infinite;font-weight:700;letter-spacing:.06em}
+.ribbon span{margin:0 18px}
+.ribbon i{font-style:normal;color:var(--gold)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* Hilo de perlas divisor */
+.pearls{height:20px;background-image:radial-gradient(circle at 10px 10px,var(--rose) 6px,transparent 6.5px),radial-gradient(circle at 30px 10px,var(--surface) 5px,transparent 5.5px),radial-gradient(circle at 50px 10px,var(--lilac) 6px,transparent 6.5px),radial-gradient(circle at 70px 10px,var(--gold) 3px,transparent 3.5px),radial-gradient(circle at 90px 10px,var(--mint) 6px,transparent 6.5px),linear-gradient(var(--line),var(--line));background-size:100px 20px,100px 20px,100px 20px,100px 20px,100px 20px,100% 2px;background-repeat:repeat-x;background-position:0 0,0 0,0 0,0 0,0 0,0 50%}
+
+section{padding-block:56px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px;margin-bottom:26px}
+.sec-head h2{font-size:clamp(2rem,4.5vw,3rem)}
+.sec-head h2 .script{font-size:1.2em}
+.band{background:var(--bg2);position:relative}
+.band::before,.band::after{content:"";position:absolute;left:0;right:0;height:22px;background:radial-gradient(circle at 15px 0,var(--bg) 15px,transparent 15.5px);background-size:30px 22px;background-repeat:repeat-x}
+.band::before{top:0}
+.band::after{bottom:0;transform:scaleY(-1)}
+
+/* Categorías */
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.cat{border:0;border-radius:var(--r);padding:18px 14px;text-align:center;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:8px;transition:transform .2s}
+.cat:nth-child(5n+1){background:color-mix(in srgb,var(--rose) 22%,var(--surface))}
+.cat:nth-child(5n+2){background:color-mix(in srgb,var(--lilac) 70%,var(--surface))}
+.cat:nth-child(5n+3){background:color-mix(in srgb,var(--peach) 70%,var(--surface))}
+.cat:nth-child(5n+4){background:color-mix(in srgb,var(--mint) 70%,var(--surface))}
+.cat:nth-child(5n+5){background:color-mix(in srgb,var(--gold) 30%,var(--surface))}
+.cat img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:4px solid var(--surface)}
+.cat b{font-family:var(--font-display);font-size:1.08rem}
+.cat small{color:var(--muted);font-weight:600}
+.cat:hover{transform:translateY(-4px)}
+.cat[aria-pressed="true"]{outline:3px solid var(--rose)}
+@media (max-width:860px){.cats{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:520px){.cats{grid-template-columns:repeat(2,1fr)}}
+
+/* Catálogo */
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 15px;font-size:.9rem;font-weight:700}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.search{margin-left:auto;flex:1 1 220px;max-width:330px;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:10px 18px;font:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}
+.card{background:var(--surface);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:100px;box-shadow:0 8px 24px rgba(74,35,64,.08);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(74,35,64,.14)}
+.card:target{outline:3px solid var(--rose)}
+.ph{position:relative;aspect-ratio:4/5;background:var(--bg2);max-width:100%;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.card:hover .ph img{transform:scale(1.05)}
+.ph .fb{width:100%;height:100%;display:grid;place-items:center;font-family:var(--font-script);font-size:2rem;color:var(--rose)}
+.badge{position:absolute;top:12px;left:12px;background:var(--surface);color:var(--ink);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:5px 10px;border-radius:999px}
+.badge.off{background:var(--rose);color:var(--on-rose)}
+.badge.perso{background:var(--gold);color:#fff}
+.card.sold .ph img{filter:grayscale(.9);opacity:.6}
+.sold-label{position:absolute;left:0;right:0;bottom:0;background:var(--ink);color:var(--bg);text-align:center;font-weight:700;letter-spacing:.2em;padding:6px;font-size:.8rem}
+.info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.info h3{font-size:1.15rem}
+.info p{margin:0;color:var(--muted);font-size:.92rem}
+.price{display:flex;gap:8px;align-items:baseline;font-variant-numeric:tabular-nums;margin-top:auto;padding-top:6px}
+.price b{font-size:1.2rem;color:var(--rose)}
+.price s{color:var(--muted);font-size:.9rem}
+.price small{color:var(--muted);font-size:.8rem}
+[hidden]{display:none!important}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.actions .add{grid-column:1/-1}
+.actions button{border-radius:999px;border:2px solid var(--line);background:transparent;color:var(--ink);padding:8px 12px;font-size:.86rem;font-weight:700}
+.actions .add{background:var(--rose);border-color:var(--rose);color:var(--on-rose)}
+.actions .add:disabled{background:var(--bg2);border-color:var(--line);color:var(--muted);cursor:not-allowed}
+.empty{padding:40px;text-align:center;color:var(--muted);border:2px dashed var(--line);border-radius:var(--r)}
+
+/* Recuerdos para eventos */
+.events{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.events .pics{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.events .pics img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r)}
+.events .pics img:nth-child(2){margin-top:36px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.tags span{background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:700;font-size:.88rem}
+.quote-form{background:var(--surface);border-radius:var(--r);padding:18px;display:grid;gap:10px}
+.quote-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:4px}
+.field input,.field select{width:100%;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:14px;padding:10px 12px;font:inherit}
+@media (max-width:860px){.events{grid-template-columns:1fr}}
+
+/* Cómo comprar */
+.how{display:grid;grid-template-columns:1fr 1.4fr;gap:32px}
+.pay{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pay span{border:2px solid var(--line);background:var(--surface);border-radius:12px;padding:8px 12px;font-weight:700;font-size:.9rem}
+ol.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px;counter-reset:s}
+ol.steps li{counter-increment:s;background:var(--surface);border-radius:var(--r);padding:18px;position:relative}
+ol.steps li::before{content:counter(s);position:absolute;top:-12px;left:16px;width:34px;height:34px;border-radius:50%;background:var(--rose);color:var(--on-rose);display:grid;place-items:center;font-weight:700}
+ol.steps b{display:block;margin-top:10px;font-family:var(--font-display);font-size:1.1rem}
+ol.steps small{color:var(--muted);font-size:.9rem}
+@media (max-width:860px){.how{grid-template-columns:1fr}}
+@media (max-width:460px){ol.steps{grid-template-columns:1fr}}
+
+/* Nosotras */
+.story{display:grid;grid-template-columns:.85fr 1.15fr;gap:36px;align-items:center}
+.logo-card{background:var(--surface);border-radius:var(--r);padding:20px;transform:rotate(-2deg);box-shadow:0 14px 34px rgba(74,35,64,.14)}
+.logo-card img{width:100%;border-radius:12px;display:block}
+.logo-card p{text-align:center;margin:12px 0 0;font-weight:700;font-size:.85rem;color:var(--muted)}
+.verse{margin:0 0 16px;font-family:var(--font-display);font-style:italic;font-size:clamp(1.3rem,3vw,1.8rem);line-height:1.3}
+.verse cite{display:block;font-family:var(--font-body);font-style:normal;font-size:.85rem;color:var(--muted);margin-top:6px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.story p{color:var(--muted);max-width:60ch}
+.sign{font-family:var(--font-script);font-size:2.2rem;color:var(--rose);line-height:1}
+.care{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.care div{background:var(--surface);border-radius:16px;padding:12px;font-size:.9rem}
+@media (max-width:860px){.story{grid-template-columns:1fr}.logo-card{max-width:360px}.care{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:var(--bg);padding-block:36px 100px;font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:flex-start}
+footer .fname{font-family:var(--font-script);font-size:2.2rem;color:var(--rose);line-height:1}
+footer a{color:var(--bg);font-weight:700}
+footer small{opacity:.75}
+.socials{display:flex;gap:14px;flex-wrap:wrap}
+
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.fab svg{width:30px;height:30px;fill:#fff}
+
+/* Bolsa */
+.scrim{position:fixed;inset:0;background:rgba(40,10,30,.45);z-index:50}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--bg);z-index:60;display:flex;flex-direction:column;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px));gap:12px;overflow:auto}
+.drawer header{display:flex;align-items:center;justify-content:space-between}
+.drawer h2{font-size:1.7rem}
+.x{border:0;background:transparent;color:var(--ink);font-size:1.8rem;line-height:1}
+.lines{display:flex;flex-direction:column;gap:10px;min-height:80px}
+.line{display:grid;grid-template-columns:56px 1fr auto;gap:10px;align-items:center;background:var(--surface);border-radius:16px;padding:8px}
+.line img{width:56px;height:56px;border-radius:12px;object-fit:cover}
+.line b{font-size:.95rem}
+.line small{color:var(--muted);font-variant-numeric:tabular-nums}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);background:transparent;color:var(--ink);font-weight:700}
+.qty span{min-width:18px;text-align:center;font-variant-numeric:tabular-nums}
+.total{display:flex;justify-content:space-between;font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;border-top:2px dashed var(--line);padding-top:10px}
+.form{display:grid;gap:10px}
+.note{font-size:.82rem;color:var(--muted);margin:0}
+textarea.fallback{width:100%;min-height:120px;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:14px;padding:10px;font:inherit;font-size:.85rem}
+
+/* Compartir */
+.modal{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:16px}
+.modal .box{position:relative;background:var(--bg);border-radius:24px;padding:22px;width:min(420px,100%);display:grid;gap:12px}
+.share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.share-grid a,.share-grid button{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:14px;padding:12px 6px;text-align:center;text-decoration:none;font-weight:700;font-size:.88rem}
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 20px;border-radius:999px;z-index:80;font-weight:700;font-size:.9rem}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Anauma Boutique Creativa, inicio">
+      <span class="name" id="brandName">Anauma</span>
+      <small>Boutique Creativa</small>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#recuerdos">Recuerdos</a>
+      <a href="#comprar">Cómo comprar</a>
+      <a href="#nosotras">Nosotras</a>
+    </nav>
+    <button class="bag-btn" id="openBag" aria-label="Abrir bolsa de compras">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      Bolsa <span class="count" id="bagCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="hello">Hola, bonita</p>
+        <h1>Pulseras, denarios y detalles hechos <span class="script">con amor</span></h1>
+        <p class="lead">Bisutería artesanal, recuerdos para bautizos y primeras comuniones, y piezas personalizadas con tu nombre.</p>
+        <div class="cta">
+          <a class="btn btn-main" href="#catalogo">Ver productos</a>
+          <a class="btn btn-wa" id="heroWa" href="#" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        </div>
+        <div class="seals">
+          <span>Hecho a mano</span>
+          <span>Personalizamos con tu nombre</span>
+          <span>Pedidos por cantidad</span>
+        </div>
+      </div>
+      <div class="board" aria-label="Fotos de productos">
+        <figure class="pol p1"><img src="img/pulsera-corazon-rojo.jpg" alt="Pulsera doble de cristal rojo con corazón blanco"><figcaption>Corazón rojo</figcaption></figure>
+        <figure class="pol p2"><img src="img/pulsera-perlas-corazon.jpg" alt="Pulsera de perlas con dije de corazón dorado"><figcaption>Perlas y oro</figcaption></figure>
+        <figure class="pol p3"><img src="img/pulseras-tejidas-perlas.jpg" alt="Pulseras tejidas con perlas pastel"><figcaption>Pastel</figcaption></figure>
+        <div class="sticker"><div><b>Nuevo</b>diseños cada semana</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ribbon" aria-hidden="true"><div class="track" id="ribbon"></div></div>
+
+  <section id="categorias">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow">Explora</p><h2>Encuentra tu <span class="script">detalle</span></h2></div></div>
+      <div class="cats" id="cats"></div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="pearls" aria-hidden="true"></div></div>
+
+  <section id="catalogo">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow">Colección</p><h2>Nuestro <span class="script">catálogo</span></h2></div><span class="note" id="resultCount"></span></div>
+      <div class="tools">
+        <div class="chips" id="chips"></div>
+        <label for="q" style="position:absolute;left:-9999px">Buscar productos</label>
+        <input id="q" class="search" type="search" placeholder="Buscar: perlas, denario, corazón…">
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="recuerdos" class="band">
+    <div class="wrap events">
+      <div class="pics">
+        <img src="img/recuerdo-denario-rojo.jpg" alt="Recuerdos de denario rojo en empaque con tarjeta" loading="lazy">
+        <img src="img/recuerdo-denario-rosa.jpg" alt="Recuerdos de denario rosa con mariposas en empaque" loading="lazy">
+      </div>
+      <div>
+        <p class="eyebrow">Para tu evento</p>
+        <h2 style="font-size:clamp(2rem,4.5vw,3rem)">Recuerdos <span class="script">personalizados</span></h2>
+        <p style="color:var(--muted);max-width:46ch">Denarios, llaveros y pulseras empacados con tarjeta y mensaje. Elige colores, nombre y fecha.</p>
+        <div class="tags"><span>Bautizos</span><span>Primera comunión</span><span>Confirmación</span><span>Baby shower</span><span>Cumpleaños</span><span>Quince años</span></div>
+        <form class="quote-form" id="quoteForm">
+          <div class="row2">
+            <div class="field"><label for="qEvent">Evento</label><select id="qEvent"><option>Bautizo</option><option>Primera comunión</option><option>Confirmación</option><option>Baby shower</option><option>Cumpleaños</option><option>Quince años</option><option>Otro</option></select></div>
+            <div class="field"><label for="qQty">Cantidad</label><input id="qQty" type="number" min="1" value="30"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="qName">Nombre a grabar</label><input id="qName" placeholder="Ej: Sofía"></div>
+            <div class="field"><label for="qDate">Fecha del evento</label><input id="qDate" type="date"></div>
+          </div>
+          <button class="btn btn-main" type="submit">Cotizar por WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="comprar">
+    <div class="wrap how">
+      <div>
+        <p class="eyebrow">Fácil y seguro</p>
+        <h2 style="font-size:clamp(2rem,4.5vw,3rem)">Cómo <span class="script">comprar</span></h2>
+        <p style="color:var(--muted);max-width:40ch">Arma tu bolsa, envía el pedido por WhatsApp y te confirmamos disponibilidad, tiempo de entrega y envío.</p>
+        <div class="pay" id="payList"></div>
+      </div>
+      <ol class="steps">
+        <li><b>Elige tus piezas</b><small>Agrégalas a la bolsa y ajusta cantidades.</small></li>
+        <li><b>Envía el pedido</b><small>Se abre WhatsApp con tu lista escrita.</small></li>
+        <li><b>Confirma y paga</b><small>Te enviamos el total con envío y los datos de pago.</small></li>
+        <li><b>Recíbelo</b><small>Empacado con cariño, listo para regalar.</small></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="nosotras" class="band">
+    <div class="wrap story">
+      <div class="logo-card">
+        <img src="img/logo-anauma.jpg" alt="Logo de Anauma Boutique Creativa" loading="lazy">
+        <p id="igHandle">@anauma.co</p>
+      </div>
+      <div>
+        <p class="eyebrow">Nosotras</p>
+        <p class="verse">“Encomienda al Señor tus obras, y tus planes se cumplirán.”<cite>Proverbios 16:3</cite></p>
+        <p>Anauma nació del gusto por crear detalles que acompañen los momentos importantes: el bautizo de un bebé, la primera comunión, el regalo para una amiga. Cada pieza se arma a mano, perla por perla, con materiales que duran.</p>
+        <p class="sign" id="ownerSign">Katherine Barrios Pérez</p>
+        <p style="margin:0;font-size:.85rem;font-weight:700">Fundadora y creadora</p>
+        <div class="care">
+          <div><b>Evita</b><br>perfume, cloro y agua de mar directa.</div>
+          <div><b>Guarda</b><br>cada pieza por separado para que no se enrede.</div>
+          <div><b>A tu medida</b><br>dinos la talla de la muñeca al pedir.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fname">Anauma</div>
+      <small>Boutique Creativa · <span id="footCity"></span></small><br>
+      WhatsApp <span id="footPhone" style="user-select:all;font-weight:700"></span>
+    </div>
+    <div class="socials" id="socials"></div>
+    <div><small id="footOwner"></small><br><small id="credit"></small></div>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>
+</a>
+
+<!-- Bolsa -->
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Bolsa de compras">
+  <header><h2>Tu <span class="script">bolsa</span></h2><button class="x" id="closeBag" aria-label="Cerrar">×</button></header>
+  <div class="lines" id="lines"></div>
+  <div class="total"><span>Total</span><span id="total">$0</span></div>
+  <form class="form" id="orderForm">
+    <div class="quote-form" style="padding:0;background:transparent">
+      <div class="row2">
+        <div class="field"><label for="fName">Nombre</label><input id="fName" required placeholder="Tu nombre"></div>
+        <div class="field"><label for="fCity">Ciudad</label><input id="fCity" required placeholder="Ciudad"></div>
+      </div>
+      <div class="field"><label for="fNote">Nombre a personalizar o nota (opcional)</label><input id="fNote" placeholder="Ej: “Valentina”, talla M"></div>
+      <div class="field"><label for="fPay">Método de pago</label><select id="fPay"></select></div>
+    </div>
+    <button class="btn btn-wa" type="submit">Enviar pedido por WhatsApp</button>
+    <button class="btn btn-ghost" type="button" id="copyOrder">Copiar pedido</button>
+    <p class="note">Si WhatsApp no abre, copia el pedido y envíalo al <span id="drawerPhone" style="user-select:all;font-weight:700"></span>.</p>
+    <textarea class="fallback" id="fallbackText" hidden readonly aria-label="Texto del pedido"></textarea>
+  </form>
+</aside>
+
+<!-- Compartir -->
+<div class="scrim" id="shareScrim" hidden></div>
+<div class="modal" id="shareModal" hidden>
+  <div class="box" role="dialog" aria-label="Compartir">
+    <button class="x" id="closeShare" aria-label="Cerrar" style="position:absolute;right:14px;top:10px">×</button>
+    <h3 id="shareTitle" style="font-size:1.3rem;padding-right:28px">Compartir</h3>
+    <div class="share-grid" id="shareGrid"></div>
+    <input id="shareLink" readonly aria-label="Enlace del producto" style="width:100%;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:14px;padding:10px;font:inherit;font-size:.85rem">
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* =====================================================
+   CONFIG — EDITA AQUÍ los datos de la tienda
+   ===================================================== */
+const CONFIG = {
+  marca: "Anauma",
+  subtitulo: "Boutique Creativa",
+  propietaria: "Katherine Barrios Pérez",
+  whatsapp: "573214559841",               // 57 + celular, sin espacios ni +
+  ciudad: "Colombia",                      // ← cambia por tu ciudad, ej: "Riohacha, La Guajira"
+  pagos: ["Nequi", "Daviplata", "Bancolombia", "Contra entrega"],
+  redes: {                                 // deja "" para ocultar
+    instagram: "https://instagram.com/anauma.co",
+    facebook: "",
+    tiktok: ""
+  },
+  credito: "Diseño web: Carlos Barrios",
+  /* Catálogo en Google Sheets: la página lee los productos de esta hoja.
+     La hoja debe estar compartida como "Cualquier persona con el enlace: Lector".
+     Deja "" para usar solo la lista PRODUCTOS de abajo. */
+  hojaId: "19iwdiOx3zxVGqWuWYX8H-eLskvRPB5KjRjO_Z8eviLY"
+};
+
+/* Categorías: "id" debe coincidir con "categoria" de cada producto */
+const CATEGORIAS = [
+  {id:"pulseras",  nombre:"Pulseras",           texto:"Cristal, perlas y tejidas", foto:"img/pulsera-corazon-rojo.jpg"},
+  {id:"denarios",  nombre:"Denarios",           texto:"Con cruz y San Benito",     foto:"img/pulsera-denario-lila.jpg"},
+  {id:"llaveros",  nombre:"Llaveros",           texto:"Para bolso y llaves",       foto:"img/llavero-caramelos.jpg"},
+  {id:"recuerdos", nombre:"Recuerdos",          texto:"Bautizos y comuniones",     foto:"img/recuerdo-denario-rosa.jpg"},
+  {id:"infantil",  nombre:"Bebés y niñas",      texto:"Colores pastel",            foto:"img/pulseras-bebe-pastel.jpg"}
+];
+
+/* PRODUCTOS de respaldo: se muestran si la hoja de Google no carga.
+   ⚠ los PRECIOS son de ejemplo: confírmalos con Katherine.
+   foto: "img/archivo.jpg" · precioAntes: 0 si no hay descuento · agotado: true/false
+   etiqueta: texto corto o "" · personalizable: true muestra la etiqueta dorada
+   unidad: "" o texto como "c/u desde 20" para precios por cantidad */
+let PRODUCTOS = [
+  {id:"p01", nombre:"Pulsera Corazón Rojo", categoria:"pulseras", precio:25000, precioAntes:0, etiqueta:"Favorita", personalizable:false, agotado:false, unidad:"", foto:"img/pulsera-corazon-rojo.jpg", descripcion:"Doble vuelta en cristal rojo facetado con dije de corazón blanco."},
+  {id:"p02", nombre:"Pulsera Perlas y Corazón", categoria:"pulseras", precio:28000, precioAntes:0, etiqueta:"Nuevo", personalizable:true, agotado:false, unidad:"", foto:"img/pulsera-perlas-corazon.jpg", descripcion:"Perlas blancas, tejido ajustable y dije de corazón dorado con mensaje."},
+  {id:"p03", nombre:"Pulseras Tejidas Pastel", categoria:"pulseras", precio:15000, precioAntes:18000, etiqueta:"Oferta", personalizable:false, agotado:false, unidad:"c/u", foto:"img/pulseras-tejidas-perlas.jpg", descripcion:"Macramé con perlas rosadas, lila y doradas. Combínalas."},
+  {id:"p04", nombre:"Denario Lila San Benito", categoria:"denarios", precio:22000, precioAntes:0, etiqueta:"", personalizable:false, agotado:false, unidad:"", foto:"img/pulsera-denario-lila.jpg", descripcion:"Cuentas lila con cruz, crucifijo y medalla de San Benito. Ajustable."},
+  {id:"p05", nombre:"Llavero Denario de Perlas", categoria:"llaveros", precio:24000, precioAntes:0, etiqueta:"Con tu nombre", personalizable:true, agotado:false, unidad:"", foto:"img/llavero-denario-perlas-nombre.jpg", descripcion:"Perlas texturizadas, cruz dorada y nombre en letras."},
+  {id:"p06", nombre:"Llavero Caramelos", categoria:"llaveros", precio:18000, precioAntes:0, etiqueta:"", personalizable:false, agotado:false, unidad:"", foto:"img/llavero-caramelos.jpg", descripcion:"Cuentas en forma de dulce, estrella rosada y cruz plateada."},
+  {id:"p07", nombre:"Llavero Denario Rojo", categoria:"llaveros", precio:16000, precioAntes:0, etiqueta:"", personalizable:false, agotado:false, unidad:"", foto:"img/llavero-san-benito.jpg", descripcion:"Cristal rojo, cruz y medalla de San Benito para protección."},
+  {id:"p08", nombre:"Recuerdo Denario Rojo", categoria:"recuerdos", precio:6500, precioAntes:0, etiqueta:"Por cantidad", personalizable:true, agotado:false, unidad:"c/u desde 20", foto:"img/recuerdo-denario-rojo.jpg", descripcion:"Llavero denario con moño, empacado con tarjeta y oración."},
+  {id:"p09", nombre:"Recuerdo Denario Mariposa", categoria:"recuerdos", precio:7000, precioAntes:0, etiqueta:"Por cantidad", personalizable:true, agotado:false, unidad:"c/u desde 20", foto:"img/recuerdo-denario-rosa.jpg", descripcion:"Colores pastel con mariposa, ideal para bautizos de niña."},
+  {id:"p10", nombre:"Llaveros San Benito x12", categoria:"recuerdos", precio:70000, precioAntes:0, etiqueta:"Al por mayor", personalizable:false, agotado:false, unidad:"docena", foto:"img/llaveros-por-mayor.jpg", descripcion:"Docena de llaveros denario rojo con cruz y medalla."},
+  {id:"p11", nombre:"Pulseras Mamá y Bebé", categoria:"infantil", precio:20000, precioAntes:0, etiqueta:"Dúo", personalizable:false, agotado:false, unidad:"el par", foto:"img/pulseras-bebe-pastel.jpg", descripcion:"Cuentas pastel en tamaño adulto y bebé, a juego."}
+];
+
+/* Texto de la cinta en movimiento */
+const CINTA = ["Hecho a mano con amor", "Recuerdos para bautizos", "Primera comunión", "Personalizamos con tu nombre", "Envíos a toda Colombia"];
+
+/* =====================================================
+   De aquí para abajo no necesitas editar
+   ===================================================== */
+const $ = s => document.querySelector(s);
+const cop = n => "$" + Math.round(n).toLocaleString("es-CO");
+const waLink = txt => "https://wa.me/" + CONFIG.whatsapp + (txt ? "?text=" + encodeURIComponent(txt) : "");
+const prettyPhone = () => CONFIG.whatsapp.replace(/^57(\d{3})(\d{3})(\d{4})$/, "$1 $2 $3");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const FALLBACK = `<div class=&quot;fb&quot;>${CONFIG.marca}</div>`;
+
+
+/* ---- Catálogo desde Google Sheets ---- */
+function parseCSV(txt){
+  const rows = []; let row = [], cell = "", q = false;
+  for (let i = 0; i < txt.length; i++){
+    const c = txt[i];
+    if (q){ if (c === '"'){ if (txt[i+1] === '"'){ cell += '"'; i++; } else q = false; } else cell += c; }
+    else if (c === '"') q = true;
+    else if (c === ","){ row.push(cell); cell = ""; }
+    else if (c === "\n" || c === "\r"){ if (c === "\r" && txt[i+1] === "\n") i++; row.push(cell); rows.push(row); row = []; cell = ""; }
+    else cell += c;
+  }
+  if (cell || row.length){ row.push(cell); rows.push(row); }
+  return rows.filter(r => r.some(v => v.trim() !== ""));
+}
+const siNo = v => /^(s[ií]|x|true|1)$/i.test(String(v||"").trim());
+const numero = v => parseInt(String(v||"").replace(/[^0-9]/g,""), 10) || 0;
+function fotoUrl(v){
+  v = String(v||"").trim(); if (!v) return "";
+  const m = v.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([\w-]+)/);
+  return m ? "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w1000" : v;
+}
+async function cargarHoja(){
+  if (!CONFIG.hojaId) return;
+  try {
+    const r = await fetch("https://docs.google.com/spreadsheets/d/" + CONFIG.hojaId + "/gviz/tq?tqx=out:csv&headers=1", {cache:"no-store"});
+    if (!r.ok) throw new Error("hoja " + r.status);
+    const rows = parseCSV(await r.text());
+    const head = rows.shift().map(h => h.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\s+/g,"_"));
+    const col = (r, k) => { const i = head.indexOf(k); return i < 0 ? "" : (r[i] || "").trim(); };
+    const lista = rows.map((r, n) => ({
+      id: col(r,"id") || "h" + (n + 1),
+      nombre: col(r,"nombre"),
+      categoria: col(r,"categoria").toLowerCase(),
+      precio: numero(col(r,"precio")),
+      precioAntes: numero(col(r,"precio_antes")),
+      unidad: col(r,"unidad"),
+      etiqueta: col(r,"etiqueta"),
+      personalizable: siNo(col(r,"personalizable")),
+      agotado: siNo(col(r,"agotado")),
+      mostrar: col(r,"mostrar") === "" ? true : siNo(col(r,"mostrar")),
+      foto: fotoUrl(col(r,"foto")),
+      descripcion: col(r,"descripcion")
+    })).filter(p => p.nombre && p.mostrar);
+    if (lista.length){ PRODUCTOS = lista; renderCats(); renderGrid(); renderBag(); }
+  } catch(e){ /* sin conexión a la hoja: se queda el catálogo de respaldo */ }
+}
+
+let bag = {};
+const KEY = "bolsa_" + CONFIG.whatsapp;
+try { bag = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e){ bag = {}; }
+const saveBag = () => { try { localStorage.setItem(KEY, JSON.stringify(bag)); } catch(e){} };
+const byId = id => PRODUCTOS.find(p => p.id === id);
+let filtro = "todos", q = "";
+
+function toast(msg){ const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(()=> t.hidden = true, 2200); }
+const img = (p, cls="") => `<img src="${p.foto}" alt="${esc(p.nombre)}" loading="lazy" ${cls} onerror="this.outerHTML='${FALLBACK}'">`;
+
+function renderCats(){
+  $("#cats").innerHTML = CATEGORIAS.map(c => {
+    const n = PRODUCTOS.filter(p => p.categoria === c.id).length;
+    return `<button class="cat" data-cat="${c.id}" aria-pressed="${filtro===c.id}"><img src="${c.foto}" alt="" loading="lazy"><b>${c.nombre}</b><small>${c.texto} · ${n}</small></button>`;
+  }).join("");
+  $("#chips").innerHTML = [{id:"todos",nombre:"Todos"},...CATEGORIAS].map(c => `<button class="chip" data-cat="${c.id}" aria-pressed="${filtro===c.id}">${c.nombre}</button>`).join("");
+}
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+function renderGrid(){
+  const term = norm(q.trim());
+  const list = PRODUCTOS.filter(p => (filtro==="todos" || p.categoria===filtro) && (!term || norm(p.nombre+" "+p.descripcion+" "+p.categoria).includes(term)));
+  $("#resultCount").textContent = list.length + (list.length===1 ? " pieza" : " piezas");
+  if (!list.length){ $("#grid").innerHTML = `<div class="empty" style="grid-column:1/-1">No encontramos “${esc(q)}”. Escríbenos por WhatsApp: hacemos diseños por encargo.</div>`; return; }
+  $("#grid").innerHTML = list.map(p => {
+    const badge = p.etiqueta ? `<span class="badge ${p.precioAntes?"off":(p.personalizable?"perso":"")}">${esc(p.etiqueta)}</span>` : "";
+    return `
+    <article class="card ${p.agotado?"sold":""}" id="producto-${p.id}">
+      <div class="ph">${img(p)}${badge}${p.agotado ? `<span class="sold-label">AGOTADO</span>` : ""}</div>
+      <div class="info">
+        <h3>${esc(p.nombre)}</h3>
+        <p>${esc(p.descripcion)}</p>
+        <div class="price"><b>${cop(p.precio)}</b>${p.precioAntes ? `<s>${cop(p.precioAntes)}</s>` : ""}${p.unidad ? `<small>${esc(p.unidad)}</small>` : ""}</div>
+        <div class="actions">
+          <button class="add" data-add="${p.id}" ${p.agotado?"disabled":""}>${p.agotado?"Agotado":"Agregar"}</button>
+          <button data-ask="${p.id}" aria-label="Preguntar por ${esc(p.nombre)} en WhatsApp">WhatsApp</button>
+          <button data-share="${p.id}" aria-label="Compartir ${esc(p.nombre)}">Compartir</button>
+        </div>
+      </div>
+    </article>`; }).join("");
+}
+function bagIds(){ return Object.keys(bag).filter(id => byId(id) && bag[id] > 0); }
+function renderBag(){
+  const ids = bagIds();
+  $("#bagCount").textContent = ids.reduce((a,id)=>a+bag[id],0);
+  $("#total").textContent = cop(ids.reduce((a,id)=>a+bag[id]*byId(id).precio,0));
+  $("#lines").innerHTML = ids.length ? ids.map(id => { const p = byId(id); return `
+    <div class="line">${img(p)}
+      <div style="min-width:0"><b>${esc(p.nombre)}</b><br><small>${cop(p.precio)} c/u</small></div>
+      <div class="qty"><button data-dec="${id}" aria-label="Quitar uno">−</button><span>${bag[id]}</span><button data-inc="${id}" aria-label="Agregar uno">+</button></div>
+    </div>`; }).join("") : `<div class="empty">Tu bolsa está vacía. Agrega tus favoritos desde el catálogo.</div>`;
+}
+function orderText(){
+  const ids = bagIds();
+  const total = ids.reduce((a,id)=>a+bag[id]*byId(id).precio,0);
+  let t = `Hola ${CONFIG.marca} 💕, quiero hacer este pedido:\n\n`;
+  ids.forEach(id => { const p = byId(id); t += `• ${bag[id]} x ${p.nombre} — ${cop(p.precio*bag[id])}\n`; });
+  t += `\nTotal: ${cop(total)} (sin envío)\nNombre: ${$("#fName").value || "-"}\nCiudad: ${$("#fCity").value || "-"}\nPago: ${$("#fPay").value}`;
+  if ($("#fNote").value) t += `\nPersonalización / nota: ${$("#fNote").value}`;
+  return t;
+}
+function openWa(text){ const a = document.createElement("a"); a.href = waLink(text); a.target = "_blank"; a.rel = "noopener"; document.body.appendChild(a); a.click(); a.remove(); }
+
+function openBag(){ renderBag(); $("#drawer").hidden = false; $("#scrim").hidden = false; }
+function closeBag(){ $("#drawer").hidden = true; $("#scrim").hidden = true; $("#fallbackText").hidden = true; }
+
+function productUrl(p){ return location.href.split("#")[0] + "#producto-" + p.id; }
+async function share(p){
+  const url = productUrl(p), text = `${p.nombre} · ${cop(p.precio)} en ${CONFIG.marca} ${CONFIG.subtitulo}`;
+  if (navigator.share && matchMedia("(pointer:coarse)").matches){
+    try { await navigator.share({title:p.nombre, text, url}); return; } catch(e){ if (e && e.name === "AbortError") return; }
+  }
+  const u = encodeURIComponent(url), tx = encodeURIComponent(text);
+  $("#shareTitle").textContent = "Compartir " + p.nombre;
+  $("#shareGrid").innerHTML = `
+    <a target="_blank" rel="noopener" href="https://wa.me/?text=${tx}%20${u}">WhatsApp</a>
+    <a target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${u}">Facebook</a>
+    <a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=${tx}&url=${u}">X</a>
+    <a target="_blank" rel="noopener" href="https://t.me/share/url?url=${u}&text=${tx}">Telegram</a>
+    <a target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=${u}">LinkedIn</a>
+    <button type="button" id="copyLink">Copiar enlace</button>`;
+  $("#shareLink").value = url;
+  $("#shareModal").hidden = false; $("#shareScrim").hidden = false;
+}
+function closeShare(){ $("#shareModal").hidden = true; $("#shareScrim").hidden = true; }
+async function copy(text, field){
+  try { await navigator.clipboard.writeText(text); toast("Copiado"); }
+  catch(e){ if (field){ field.hidden = false; field.value = text; field.focus(); field.select(); } toast("Selecciona el texto y cópialo"); }
+}
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("button,a"); if (!t) return;
+  if (t.dataset.cat){ filtro = (filtro === t.dataset.cat && t.classList.contains("cat")) ? "todos" : t.dataset.cat; renderCats(); renderGrid(); if (t.classList.contains("cat")) $("#catalogo").scrollIntoView(); return; }
+  if (t.dataset.add){ bag[t.dataset.add] = (bag[t.dataset.add]||0) + 1; saveBag(); renderBag(); toast("Agregado a tu bolsa ♥"); return; }
+  if (t.dataset.inc){ bag[t.dataset.inc]++; saveBag(); renderBag(); return; }
+  if (t.dataset.dec){ bag[t.dataset.dec]--; if (bag[t.dataset.dec] <= 0) delete bag[t.dataset.dec]; saveBag(); renderBag(); return; }
+  if (t.dataset.ask){ const p = byId(t.dataset.ask); openWa(`Hola ${CONFIG.marca} 💕, me interesa: ${p.nombre} (${cop(p.precio)}). ¿Está disponible?\n${productUrl(p)}`); return; }
+  if (t.dataset.share){ share(byId(t.dataset.share)); return; }
+  if (t.id === "copyLink"){ copy($("#shareLink").value, $("#shareLink")); return; }
+});
+$("#openBag").onclick = openBag;
+$("#closeBag").onclick = closeBag;
+$("#scrim").onclick = closeBag;
+$("#closeShare").onclick = closeShare;
+$("#shareScrim").onclick = closeShare;
+document.addEventListener("keydown", e => { if (e.key === "Escape"){ closeBag(); closeShare(); } });
+$("#q").addEventListener("input", e => { q = e.target.value; renderGrid(); });
+$("#orderForm").addEventListener("submit", e => { e.preventDefault(); if (!bagIds().length){ toast("Tu bolsa está vacía"); return; } openWa(orderText()); });
+$("#copyOrder").onclick = () => { if (!bagIds().length){ toast("Tu bolsa está vacía"); return; } copy(orderText(), $("#fallbackText")); };
+$("#quoteForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const d = $("#qDate").value ? new Date($("#qDate").value + "T12:00").toLocaleDateString("es-CO",{day:"numeric",month:"long",year:"numeric"}) : "por definir";
+  openWa(`Hola ${CONFIG.marca} 💕, quiero cotizar recuerdos:\n\n• Evento: ${$("#qEvent").value}\n• Cantidad: ${$("#qQty").value}\n• Nombre a grabar: ${$("#qName").value || "-"}\n• Fecha: ${d}`);
+});
+
+(function init(){
+  $("#brandName").textContent = CONFIG.marca;
+  $("#footCity").textContent = CONFIG.ciudad;
+  $("#footPhone").textContent = prettyPhone();
+  $("#drawerPhone").textContent = prettyPhone();
+  $("#ownerSign").textContent = CONFIG.propietaria;
+  $("#footOwner").textContent = "Propietaria: " + CONFIG.propietaria;
+  $("#credit").textContent = CONFIG.credito;
+  const hola = waLink(`Hola ${CONFIG.marca} 💕, quiero información sobre sus productos.`);
+  $("#heroWa").href = hola; $("#fab").href = hola;
+  $("#payList").innerHTML = CONFIG.pagos.map(p => `<span>${esc(p)}</span>`).join("");
+  $("#fPay").innerHTML = CONFIG.pagos.map(p => `<option>${esc(p)}</option>`).join("");
+  $("#socials").innerHTML = Object.entries(CONFIG.redes).filter(([,u])=>u).map(([k,u]) => `<a href="${u}" target="_blank" rel="noopener">${k[0].toUpperCase()+k.slice(1)}</a>`).join("");
+  const items = CINTA.map(x => `<span>${esc(x)}</span><i>♥</i>`).join("");
+  $("#ribbon").innerHTML = items + items;
+  renderCats(); renderGrid(); renderBag();
+  cargarHoja();
+})();
+</script>
+
+</body>
+</html>
